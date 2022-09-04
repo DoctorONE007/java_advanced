@@ -1,8 +1,9 @@
 import java.util.Scanner;
 
-public class Main {
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+public class Calculator {
+
+    static void start() {
+
         String operation;
         double a;
         double b;
@@ -17,19 +18,21 @@ public class Main {
         //Ввод операции пользователем, с проверкой допустимых значений / * - +
         do {
             System.out.println("Введите операцию:");
-            operation = scanner.nextLine();
+            operation = Main.scanner.nextLine();
         } while (!operation.matches("^[+*\\/\\-]$"));
 
-        a = checkDouble("первое", scanner);
-        b = checkDouble("второе", scanner);
+        a = checkDouble("первое", Main. scanner);
+
+        b = checkDouble("второе", Main.scanner);
 
         try {
             res = makeOperation(a, b, operation);
-        } catch (Exception e) {
+        } catch (
+                Exception e) {
             res = 0;
         }
 
-        System.out.printf(a + " " + operation + " " + b + " = " + "%.4f", res);
+        System.out.printf(a + " " + operation + " " + b + " = " + "%.4f"+ "\n", res);
     }
 
     /**
@@ -74,3 +77,4 @@ public class Main {
         }
     }
 }
+
