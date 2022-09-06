@@ -23,18 +23,17 @@ public class Calculator {
             operation = Main.scanner.nextLine();
         } while (!operation.matches("^[+*\\/\\-]$"));
 
-        a = checkDouble("первое", Main. scanner);
+        a = checkDouble("первое", Main.scanner);
 
         b = checkDouble("второе", Main.scanner);
 
         try {
             res = makeOperation(a, b, operation);
-        } catch (
-                Exception e) {
+        } catch (Exception e) {
             res = 0;
         }
 
-        System.out.printf(a + " " + operation + " " + b + " = " + "%.4f"+ "\n", res);
+        System.out.printf(a + " " + operation + " " + b + " = " + "%.4f" + "\n", res);
     }
 
     /**

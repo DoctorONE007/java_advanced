@@ -16,6 +16,6 @@ public class Main {
             if (line.equals("2"))
                 StringArray.start();
         } while (line.matches("^[12]$"));
-
+        scanner.close();
     }
 }
