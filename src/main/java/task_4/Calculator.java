@@ -1,19 +1,15 @@
 package task_4;
 
-import java.util.Scanner;
-
 public class Calculator {
-    private final Scanner scanner = new Scanner(System.in);
+
     private String operation;
     private double a;
     private double b;
 
-    public Calculator() {
-        System.out.println("Калькулятор. \n" +
-                "для сложения введите +\n" +
-                "для вычитания введите -\n" +
-                "для умножения введите *\n" +
-                "для деления введите /");
+    public Calculator(String operation, double a, double b) {
+        this.operation = operation;
+        this.a = a;
+        this.b = b;
     }
 
     public String getOperation() {
@@ -28,20 +24,16 @@ public class Calculator {
         return b;
     }
 
-
-    public void setOperation() {
-        do {
-            System.out.println("Введите операцию:");
-            operation = scanner.nextLine();
-        } while (!operation.matches("^[+*\\/\\-]$"));
+    public void setOperation(String operation) {
+        this.operation = operation;
     }
 
-    public void setA() {
-        a = checkDouble("первое", scanner);
+    public void setA(double a) {
+        this.a = a;
     }
 
-    public void setB() {
-        b = checkDouble("второе", scanner);
+    public void setB(double b) {
+        this.b = b;
     }
 
     public double calculate(double a, double b, String operation) {
@@ -62,21 +54,6 @@ public class Calculator {
             System.out.println(e.getMessage());
             return 0;
         }
-    }
-
-    private double checkDouble(String message, Scanner scanner) {
-        boolean repeat;
-        double res = 0;
-        do {
-            repeat = false;
-            System.out.println("Введите " + message + " число:");
-            try {
-                res = Double.parseDouble(scanner.nextLine());
-            } catch (NumberFormatException e) {
-                repeat = true;
-            }
-        } while (repeat);
-        return res;
     }
 
     private double add(double a, double b) {

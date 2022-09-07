@@ -1,7 +1,13 @@
 package task_3.SweetBox;
 
 public class Cookie extends Sweet{
-    public Cookie(String name, double weight, double price, String uniqueParameter) {
-        super(name, weight, price, uniqueParameter);
+    int calories;
+    public Cookie(String name, double weight, double price, int calories) {
+        super(name, weight, price);
+        this.calories =calories;
+    }
+    @Override
+    public String toString() {
+        return super.toString() + " Калорийность: " + calories;
     }
 }
