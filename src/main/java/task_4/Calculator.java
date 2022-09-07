@@ -36,24 +36,21 @@ public class Calculator {
         this.b = b;
     }
 
-    public double calculate(double a, double b, String operation) {
-        try {
-            switch (operation) {
-                case ("+"):
-                    return add(a, b);
-                case ("-"):
-                    return subtract(a, b);
-                case ("*"):
-                    return multiply(a, b);
-                case ("/"):
-                    return divide(a, b);
-                default:
-                    throw new Exception("Ошибочка");
-            }
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-            return 0;
+    public double calculate(double a, double b, String operation) throws Exception {
+
+        switch (operation) {
+            case ("+"):
+                return add(a, b);
+            case ("-"):
+                return subtract(a, b);
+            case ("*"):
+                return multiply(a, b);
+            case ("/"):
+                return divide(a, b);
+            default:
+                throw new Exception("Ошибочка");
         }
+
     }
 
     private double add(double a, double b) {
@@ -69,6 +66,8 @@ public class Calculator {
     }
 
     private double divide(double a, double b) {
+        if (b == 0)
+            throw new NullPointerException("Вторым аргументом указан 0 - не надо так");
         return a / b;
     }
 }

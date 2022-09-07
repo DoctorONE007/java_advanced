@@ -3,7 +3,7 @@ package task_4;
 import java.util.Scanner;
 
 public class Main {
-    private static Scanner scanner = new Scanner(System.in);
+    private static final Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
         System.out.println("Калькулятор. \n" +
@@ -12,11 +12,17 @@ public class Main {
                 "для умножения введите *\n" +
                 "для деления введите /");
 
-
         Calculator calculator = new Calculator(reedOperation(), checkDouble("первое"), checkDouble("второе"));
-        double res = calculator.calculate(calculator.getA(), calculator.getB(), calculator.getOperation());
-
-        System.out.printf(calculator.getA() + " " + calculator.getOperation() + " " + calculator.getB() + " = " + "%.4f" + "\n", res);
+        try {
+            double res = calculator.calculate(calculator.getA(), calculator.getB(), calculator.getOperation());
+            System.out.printf(calculator.getA() + " " + calculator.getOperation() + " " + calculator.getB() + " = " + "%.4f" + "\n", res);
+        } catch (NullPointerException e) {
+            System.out.println("NullPointerException");
+            e.printStackTrace();
+        } catch (Exception e) {
+            System.out.println("Exception");
+            e.printStackTrace();
+        }
     }
 
     public static String reedOperation() {
