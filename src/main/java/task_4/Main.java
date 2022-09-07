@@ -12,7 +12,7 @@ public class Main {
                 "для умножения введите *\n" +
                 "для деления введите /");
 
-        Calculator calculator = new Calculator(reedOperation(), checkDouble("первое"), checkDouble("второе"));
+        Calculator calculator = new Calculator(readOperation(), checkDouble("первое"), checkDouble("второе"));
         try {
             double res = calculator.calculate(calculator.getA(), calculator.getB(), calculator.getOperation());
             System.out.printf(calculator.getA() + " " + calculator.getOperation() + " " + calculator.getB() + " = " + "%.4f" + "\n", res);
@@ -25,7 +25,7 @@ public class Main {
         }
     }
 
-    public static String reedOperation() {
+    public static String readOperation() {
         String operation;
         do {
             System.out.println("Введите операцию:");
